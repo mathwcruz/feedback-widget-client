@@ -2,11 +2,13 @@
 import { ArrowLeft } from "phosphor-react";
 import { FormEvent, useCallback, useMemo, useState } from "react";
 
-import { feedbackTypes } from "utils/widget-feedback-types";
-
 import { FeedbackType } from "components/Widget/WidgetForm";
 import { WidgetCloseButton } from "components/Widget/WidgetCloseButton";
 import { ScreenshotButton } from "components/Widget/WidgetForm/ScreenshotButton";
+import { Loading } from "components/Loading";
+
+import { api } from "services/api";
+import { feedbackTypes } from "utils/widget-feedback-types";
 
 interface FeedbackContentStepProps {
   feedbackType: FeedbackType;
@@ -22,19 +24,33 @@ export const FeedbackContentStep = ({
   const [screenshot, setScreenshot] = useState<string | null>(null);
   const [comment, setComment] = useState<string>("");
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const feedbackTypeInfo = useMemo(
     () => feedbackTypes[feedbackType],
     [feedbackType]
   );
 
   const handleSubmitFeedback = useCallback(
-    (e: FormEvent) => {
+    async (e: FormEvent) => {
       e.preventDefault();
 
-      console.log({ screenshot, comment });
-      onFeedbackSent();
+      try {
+        setIsLoading(true);
+        await api.post("feedbacks", {
+          type: feedbackType,
+          comment,
+          screenshot,
+        });
+
+        setIsLoading(false);
+        onFeedbackSent();
+      } catch (error) {
+        throw new Error(`Failed to send feedback: ${error}`);
+        setIsLoading(false);
+      }
     },
-    [comment, screenshot, onFeedbackSent]
+    [comment, feedbackType, onFeedbackSent, screenshot]
   );
 
   return (
@@ -73,10 +89,10 @@ export const FeedbackContentStep = ({
           <button
             className="p-2 transition-all disabled:hover:bg-brand-500 disabled:cursor-not-allowed disabled:opacity-50 bg-brand-500 rounded-[4px] border-transparent flex-1 flex justify-center items-center text-sm font-semibold hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500"
             type="submit"
-            disabled={!comment?.length}
+            disabled={!comment?.length || isLoading}
             title={!comment?.length ? "Please enter a comment" : undefined}
           >
-            Send feedback
+            {isLoading ? <Loading /> : "Send feedback"}
           </button>
         </footer>
       </form>
