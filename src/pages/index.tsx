@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Feedback Widget</title>
+        <title>Shopify</title>
       </Head>
       <Widget />
     </div>

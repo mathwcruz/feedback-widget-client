@@ -43,7 +43,7 @@ export const ScreenshotButton = ({
 
   return (
     <button
-      className="p-2 bg-zinc-800 rounded-[4px] border-transparent hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500"
+      className="p-2 bg-zinc-800 rounded-[4px] border-transparent hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-primary-100"
       type="button"
       onClick={() => !isTakingScreenshot && handleTakeScreenshot()}
     >

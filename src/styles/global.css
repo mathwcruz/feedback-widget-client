@@ -3,5 +3,25 @@
 @tailwind utilities;
 
 body {
-  @apply bg-[#09090A] text-zinc-100;
+  @apply text-zinc-100;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-heading;
+}
+
+p,
+span,
+strong,
+a,
+em,
+input,
+textarea,
+button {
+  @apply font-text;
 }
