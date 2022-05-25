@@ -9,14 +9,14 @@ export const benefits = [
   {
     id: 2,
     heading: "Self-reported data",
-    text: "You own your data, store design and business plan, but you are free to use the software platform and resources provided by Shopify.",
+    text: "You own your data, store design and business plan, but you are free to use the software platform and resources provided by Sirmyt.",
     icon: "database",
     backgroundColor: "#9DEDC6",
   },
   {
     id: 3,
     heading: "Updates are always free.",
-    text: "Shopify is so dedicated to keeping its software current that it sends you free updates for a lifetime without charging you anything.",
+    text: "Sirmyt is so dedicated to keeping its software current that it sends you free updates for a lifetime without charging you anything.",
     icon: "refresh",
     backgroundColor: "#FFBC9F",
   },

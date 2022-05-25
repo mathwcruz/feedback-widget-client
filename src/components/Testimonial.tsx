@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { CaretLeft, CaretRight } from "phosphor-react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { customers } from "utils/customers";
 
@@ -32,17 +32,33 @@ export const Testimonial = () => {
     }
   }, [currentCustomer]);
 
+  const handleGoToPreviousCustomerTestimonial = useCallback(() => {
+    const customerIndex = customers?.findIndex(
+      (customer) => customer?.id === currentCustomer?.id
+    );
+
+    setCurrentCustomer(customers?.[customerIndex - 1]);
+  }, [currentCustomer?.id]);
+
+  const handleGoToNextCustomerTestimonial = useCallback(() => {
+    const customerIndex = customers?.findIndex(
+      (customer) => customer?.id === currentCustomer?.id
+    );
+
+    setCurrentCustomer(customers?.[customerIndex + 1]);
+  }, [currentCustomer?.id]);
+
   return (
     <div className="w-screen h-full flex flex-col px-5 pb-[52px] justify-center">
       <img
         src={`/assets/images/${currentCustomer?.image}.png`}
         alt=""
-        className="h-60 self-center mb-10"
+        className="h-60 self-center mb-10 transition-all duration-1000"
       />
       <div className="flex flex-col justify-center gap-[18px]">
-        <h1 className="text-left text-primary-100 max-w-[270px] font-medium text-[32px] leading-[42px]">
+        <h4 className="text-left text-primary-100 max-w-[270px] font-medium text-[32px] leading-[42px]">
           What Our Customers Say
-        </h1>
+        </h4>
         <p className="text-left max-w-[335px] text-black-400 font-normal text-sm leading-6">
           &quot;Lorem ipsum dolor sit amet consectetur adipiscing elit turpis
           viverra amet elit est proin tgestas neque quis aliq vel. Viverra
@@ -64,6 +80,7 @@ export const Testimonial = () => {
             <button
               disabled={!canGoBack}
               className={`text-primary-100 flex items-center justify-center rounded-full w-[35px] h-[35px] border border-black-400 hover:opacity-75 duration-150 transition-opacity bg-primary-100 disabled:bg-transparent disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer`}
+              onClick={handleGoToPreviousCustomerTestimonial}
             >
               <CaretLeft
                 weight="bold"
@@ -73,6 +90,7 @@ export const Testimonial = () => {
             <button
               disabled={!canGoForward}
               className={`text-primary-100 flex items-center justify-center rounded-full w-[35px] h-[35px] border border-black-400 hover:opacity-75 duration-150 transition-opacity bg-primary-100 disabled:bg-transparent disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer`}
+              onClick={handleGoToNextCustomerTestimonial}
             >
               <CaretRight
                 weight="bold"

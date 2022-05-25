@@ -33,7 +33,7 @@ export const Payment = () => {
           alt="An imagem showing a list of three men with their respective data an a card showing amount bill"
         />
       </div>
-      <div className="w-screen h-full bg-white px-5 py-20 flex flex-col justify-center">
+      <div className="w-screen h-full bg-white px-5 pb-20 flex flex-col justify-center">
         <span className="block text-primary-100 font-medium text-base leading-5 text-left mb-2">
           PAY ONCE, USE LIFETIME
         </span>

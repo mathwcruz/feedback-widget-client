@@ -20,7 +20,7 @@ export const FeedbackSuccessStep = ({
           We appreciate the feedback
         </span>
         <button
-          className="py-2 px-6 mt-6 bg-zinc-800 rounded-[4px] border-transparent text-sm leading-6 hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-primary-100"
+          className="py-2 px-6 mt-6 bg-primary-100 rounded-[4px] border-transparent text-sm leading-6 hover:bg-primary-300 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-100 focus:ring-primary-100"
           type="button"
           onClick={onFeedbackRestartRequested}
         >
