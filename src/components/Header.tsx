@@ -2,8 +2,12 @@
 import { useCallback } from "react";
 import { Moon, Sun } from "phosphor-react";
 
+import { useTranslation } from "hooks/useTranslation";
+
 export const Header = () => {
-  const handleChangeLanguage = useCallback((language: "pt-BR" | "en-US") => {},
+  const { currentTranslation } = useTranslation();
+
+  const handleChangeLanguage = useCallback((language: "ptBR" | "enUS") => {},
   []);
 
   return (
@@ -22,20 +26,26 @@ export const Header = () => {
         <div className="flex flex-row items-center justify-center gap-2">
           <button
             className={`flex items-center justify-center w-7 h-7`}
-            onClick={() => handleChangeLanguage("pt-BR")}
+            onClick={() => handleChangeLanguage("ptBR")}
           >
             <img
               src="/assets/icons/brazilian-flag.svg"
-              alt="Change application language to portuguese (pt-BR)"
+              alt={
+                currentTranslation?.components?.header?.countryFlagsAltText
+                  ?.ptBR || "Change application language to portuguese (ptBR)"
+              }
             />
           </button>
           <button
             className={`flex items-center justify-center w-8 h-8 opacity-50`}
-            onClick={() => handleChangeLanguage("en-US")}
+            onClick={() => handleChangeLanguage("enUS")}
           >
             <img
               src="/assets/icons/usa-flag.svg"
-              alt="Change application language to english (en-US)"
+              alt={
+                currentTranslation?.components?.header?.countryFlagsAltText
+                  ?.enUS || "Change application language to english (enUS)"
+              }
             />
           </button>
         </div>

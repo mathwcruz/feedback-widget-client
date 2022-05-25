@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import { feedbackTypes } from "utils/widget-feedback-types";
 
+import { useTranslation } from "hooks/useTranslation";
 import { WidgetCloseButton } from "../../WidgetCloseButton";
 import { FeedbackType } from "..";
+
+import { feedbackTypes } from "utils/widget-feedback-types";
 
 interface FeedbackTypeStepProps {
   onFeedbackTypeChanged: (feedbackType: FeedbackType) => void;
@@ -11,10 +13,15 @@ interface FeedbackTypeStepProps {
 export const FeedbackTypeStep = ({
   onFeedbackTypeChanged,
 }: FeedbackTypeStepProps) => {
+  const { currentTranslation } = useTranslation();
+
   return (
     <>
       <header>
-        <span className="text-xl leading-6">Leave your feedback</span>
+        <span className="text-xl leading-6">
+          {currentTranslation?.components?.widget?.widgetForm?.steps
+            ?.feedbackTypeStep?.header?.title || "Leave your feedback"}
+        </span>
         <WidgetCloseButton />
       </header>
 

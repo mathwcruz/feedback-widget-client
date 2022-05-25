@@ -2,11 +2,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useCallback, useEffect, useState } from "react";
-import { ArrowLineUp } from "phosphor-react";
 
 import { Widget } from "components/Widget";
 
 import { About } from "components/About";
+import { BackToTopButton } from "components/BackToTopButton";
 import { Benefits } from "components/Benefits";
 import { Footer } from "components/Footer";
 import { Header } from "components/Header";
@@ -51,16 +51,10 @@ const Home: NextPage = () => {
         <Testimonial />
         <Footer />
       </main>
-      <button
-        className={`fixed bottom-5 left-4 md:bottom-10 md:left-8 flex flex-col items-center justify-center p-2 bg-primary-100 border border-white rounded-full cursor-pointer ${
-          backToTopButtonIsVisible
-            ? "opacity-100 transition-all duration-200"
-            : "opacity-0 pointer-events-none"
-        }`}
-        onClick={scrollToTop}
-      >
-        <ArrowLineUp className="w-5 h-5 text-white" weight="fill" />
-      </button>
+      <BackToTopButton
+        backToTopButtonIsVisible={backToTopButtonIsVisible}
+        scrollToTop={scrollToTop}
+      />
       <Widget />
     </div>
   );
