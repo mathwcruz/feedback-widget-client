@@ -1,13 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import { Moon, Sun } from "phosphor-react";
 
-import { useTheme } from "hooks/useTheme";
 import { useI18n } from "hooks/useI18n";
 
 export const Header = () => {
-  const { theme, toggleChangeTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const { language, toggleChangeLanguage } = useI18n();
+
+  const [mounted, setMounted] = useState<boolean>(false);
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
+  const isDark = () => theme === "dark";
 
   return (
     <header className="w-full flex justify-between items-center">
@@ -18,8 +26,8 @@ export const Header = () => {
         </span>
       </div>
       <div className="flex flex-row items-center justify-center gap-4">
-        <button onClick={toggleChangeTheme}>
-          {theme === "dark" ? (
+        <button onClick={() => setTheme(isDark() ? "light" : "dark")}>
+          {isDark() ? (
             <Sun
               weight="regular"
               className="w-6 h-6 text-black-100 transition-all duration-200"
