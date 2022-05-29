@@ -2,11 +2,7 @@
 import { useCallback } from "react";
 import { Moon, Sun } from "phosphor-react";
 
-import { useTranslation } from "hooks/useTranslation";
-
 export const Header = () => {
-  const { currentTranslation } = useTranslation();
-
   const handleChangeLanguage = useCallback((language: "ptBR" | "enUS") => {},
   []);
 
@@ -30,10 +26,7 @@ export const Header = () => {
           >
             <img
               src="/assets/icons/brazilian-flag.svg"
-              alt={
-                currentTranslation?.components?.header?.countryFlagsAltText
-                  ?.ptBR || "Change application language to portuguese (ptBR)"
-              }
+              alt="Change application language to portuguese (ptBR)"
             />
           </button>
           <button
@@ -42,10 +35,7 @@ export const Header = () => {
           >
             <img
               src="/assets/icons/usa-flag.svg"
-              alt={
-                currentTranslation?.components?.header?.countryFlagsAltText
-                  ?.enUS || "Change application language to english (enUS)"
-              }
+              alt="Change application language to english (enUS)"
             />
           </button>
         </div>

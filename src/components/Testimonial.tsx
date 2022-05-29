@@ -2,7 +2,6 @@
 import { CaretLeft, CaretRight } from "phosphor-react";
 import { useCallback, useEffect, useState } from "react";
 
-import { useTranslation } from "hooks/useTranslation";
 import { customers } from "utils/customers";
 
 type Customer = {
@@ -13,8 +12,6 @@ type Customer = {
 };
 
 export const Testimonial = () => {
-  const { currentTranslation } = useTranslation();
-
   const [currentCustomer, setCurrentCustomer] = useState<Customer>(
     customers?.[0]
   );
@@ -60,12 +57,12 @@ export const Testimonial = () => {
       />
       <div className="flex flex-col justify-center gap-[18px]">
         <h4 className="text-left text-primary-100 max-w-[270px] font-medium text-[32px] leading-[42px]">
-          {currentTranslation?.components?.testimonial?.heading ||
-            "What Our Customers Say"}
+          What Our Customers Say
         </h4>
         <p className="text-left max-w-[335px] text-black-400 font-normal text-sm leading-6">
-          {currentTranslation?.components?.testimonial?.paragraph ||
-            "Lorem ipsum dolor sit amet consectetur adipiscing elit turpis viverra amet elit est proin tgestas neque quis aliq vel. Viverra gravida orci vitae at aliquam sit accums rutrum ut convallis."}
+          Lorem ipsum dolor sit amet consectetur adipiscing elit turpis viverra
+          amet elit est proin tgestas neque quis aliq vel. Viverra gravida orci
+          vitae at aliquam sit accums rutrum ut convallis.
         </p>
         <div className="flex flex-row items-center justify-between">
           <div className="flex flex-row">
