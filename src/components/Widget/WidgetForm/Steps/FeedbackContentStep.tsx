@@ -57,7 +57,7 @@ export const FeedbackContentStep = ({
     <>
       <header>
         <button
-          className="top-5 left-5 absolute text-zinc-400 hover:text-zinc-100"
+          className="top-5 left-5 absolute text-zinc-400 hover:text-zinc-100 dark:text-gray-300 dark:hover:text-zinc-100"
           type="button"
           onClick={onFeedbackRestartRequested}
         >
@@ -76,7 +76,7 @@ export const FeedbackContentStep = ({
 
       <form onSubmit={handleSubmitFeedback} className="my-4 w-full">
         <textarea
-          className="min-w-[304px] w-full min-h-[112px] text-sm placeholder-zinc-300 text-zinc-100 border-zinc-400 bg-transparent rounded-[4px] focus:border-zinc-400 focus:ring-zinc-400 focus:ring-1 resize-none focus:outline-none scrollbar scrollbar-thumb-zinc-600 scrollbar-track-transparent scrollbar-thin"
+          className="min-w-[304px] w-full min-h-[112px] text-sm placeholder-zinc-300 dark:placeholder-zinc-300 text-zinc-100 dark:text-gray-300 border-zinc-400 dark:border-gray-300 bg-transparent rounded-[4px] focus:border-zinc-400 dark:focus:border-gray-300 focus:ring-zinc-400 dark:focus:ring-gray-300 focus:ring-1 resize-none focus:outline-none scrollbar scrollbar-thumb-zinc-600 dark:scrollbar-thumb-gray-400 scrollbar-track-transparent scrollbar-thin"
           placeholder="Tell us in detail what's going on"
           onChange={(e) => setComment(e.target.value)}
         />
@@ -87,7 +87,7 @@ export const FeedbackContentStep = ({
             onScreenshotTook={setScreenshot}
           />
           <button
-            className="p-2 transition-all disabled:hover:bg-primary-100 disabled:cursor-not-allowed disabled:opacity-50 bg-primary-100 rounded-[4px] border border-white flex-1 flex justify-center items-center text-sm font-semibold hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-300 focus:ring-primary-300"
+            className="p-2 transition-all disabled:hover:bg-primary-100 dark:disabled:hover:bg-dark-background disabled:cursor-not-allowed disabled:opacity-50 dark:disabled:border-gray-300 bg-primary-100 dark:disabled:bg-dark-background rounded-[4px] border border-white dark:border-dark-background flex-1 flex justify-center items-center text-sm font-semibold hover:bg-primary-300 dark:hover:bg-dark-background focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-300 dark:focus:ring-offset-dark-background focus:ring-primary-300 dark:focus:ring-dark-background"
             type="submit"
             disabled={!comment?.length || isLoading}
             title={!comment?.length ? "Please enter a comment" : ""}

@@ -59,7 +59,7 @@ export const Testimonial = () => {
         <h4 className="text-left text-primary-100 max-w-[270px] font-medium text-[32px] leading-[42px]">
           What Our Customers Say
         </h4>
-        <p className="text-left max-w-[335px] text-black-400 font-normal text-sm leading-6">
+        <p className="text-left max-w-[335px] text-black-400 dark:text-gray-300 font-normal text-sm leading-6">
           Lorem ipsum dolor sit amet consectetur adipiscing elit turpis viverra
           amet elit est proin tgestas neque quis aliq vel. Viverra gravida orci
           vitae at aliquam sit accums rutrum ut convallis.
@@ -71,7 +71,7 @@ export const Testimonial = () => {
               <span className="font-medium text-sm leading-3 text-primary-100 text-left block">
                 {currentCustomer?.name}
               </span>
-              <span className="font-medium text-sm leading-3 text-black-300 text-left block mt-[10px]">
+              <span className="font-medium text-sm leading-3 text-black-300 dark:text-gray-300 text-left block mt-[10px]">
                 {currentCustomer?.role}
               </span>
             </div>
@@ -79,7 +79,7 @@ export const Testimonial = () => {
           <div className="flex flex-row items-center justify-between gap-6">
             <button
               disabled={!canGoBack}
-              className={`text-primary-100 flex items-center justify-center rounded-full w-[35px] h-[35px] border border-black-400 hover:opacity-75 duration-150 transition-opacity bg-primary-100 disabled:bg-transparent disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer`}
+              className={`text-primary-100 flex items-center justify-center rounded-full w-[35px] h-[35px] border border-black-400 dark:border-primary-100 hover:opacity-75 duration-150 transition-opacity bg-primary-100 dark:bg-dark-background disabled:bg-transparent disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer`}
               onClick={handleGoToPreviousCustomerTestimonial}
             >
               <CaretLeft
@@ -89,14 +89,14 @@ export const Testimonial = () => {
             </button>
             <button
               disabled={!canGoForward}
-              className={`text-primary-100 flex items-center justify-center rounded-full w-[35px] h-[35px] border border-black-400 hover:opacity-75 duration-150 transition-opacity bg-primary-100 disabled:bg-transparent disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer`}
+              className={`text-primary-100 flex items-center justify-center rounded-full w-[35px] h-[35px] border border-black-400 dark:border-primary-100 hover:opacity-75 duration-150 transition-opacity bg-primary-100 dark:bg-dark-background disabled:bg-transparent disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer`}
               onClick={handleGoToNextCustomerTestimonial}
             >
               <CaretRight
                 weight="bold"
-                className={`w-4 h-4 text-${
-                  !canGoForward ? "black-400" : "white"
-                }`}
+                className={`w-4 h-4 dark:text-${
+                  !canGoForward ? "black-500" : "gray-300"
+                } text-${!canGoForward ? "black-400" : "white"}`}
               />
             </button>
           </div>

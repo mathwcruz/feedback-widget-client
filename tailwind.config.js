@@ -24,6 +24,9 @@ module.exports = {
           300: "#57605E",
           400: "#82918E",
         },
+        dark: {
+          background: "#121212",
+        },
       },
       fontFamily: {
         heading: "Plus Jakarta Sans, sans-serif",

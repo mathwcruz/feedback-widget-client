@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "phosphor-react";
 
@@ -21,7 +21,7 @@ export const Header = () => {
     <header className="w-full flex justify-between items-center">
       <div className="flex flex-row justify-center items-center gap-2">
         <img src="/assets/favicon.png" alt="Sirmyt logo" />
-        <span className="block text-lg text-black-100 font-semibold text-center">
+        <span className="block text-lg text-black-100 dark:text-gray-300 font-semibold text-center">
           Sirmyt
         </span>
       </div>
@@ -30,7 +30,7 @@ export const Header = () => {
           {isDark() ? (
             <Sun
               weight="regular"
-              className="w-6 h-6 text-black-100 transition-all duration-200"
+              className="w-6 h-6 text-black-100 dark:text-gray-300 transition-all duration-200"
             />
           ) : (
             <Moon
@@ -42,7 +42,7 @@ export const Header = () => {
         <div className="flex flex-row items-center justify-center gap-2">
           <button
             className={`flex items-center justify-center w-7 h-7 ${
-              language === "pt-BR" ? "cursor-not-allowed" : "opacity-50 "
+              language === "pt-BR" ? "cursor-not-allowed" : "opacity-30"
             }`}
             onClick={toggleChangeLanguage}
           >
@@ -53,7 +53,7 @@ export const Header = () => {
           </button>
           <button
             className={`flex items-center justify-center w-8 h-8 ${
-              language === "en-US" ? "cursor-not-allowed" : "opacity-50 "
+              language === "en-US" ? "cursor-not-allowed" : "opacity-30"
             }`}
             onClick={toggleChangeLanguage}
           >

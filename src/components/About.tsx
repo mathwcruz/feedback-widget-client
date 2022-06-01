@@ -7,7 +7,7 @@ export const About = () => {
         <h1 className="text-primary-100 text-center max-w-[335px] font-bold text-[42px] leading-[52px]">
           The platform commerce is built on.
         </h1>
-        <p className="text-black-300 text-center max-w-[335px] font-normal text-lg">
+        <p className="text-black-300 dark:text-gray-300 text-center max-w-[335px] font-normal text-lg">
           Millions of the world&apos;s most successful brands trust Sirmyt to
           sell, ship and process payments anywhere.
         </p>

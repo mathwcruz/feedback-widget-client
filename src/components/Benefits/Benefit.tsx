@@ -13,7 +13,7 @@ interface BenefitProps {
 
 export const Benefit = ({ benefit }: BenefitProps) => {
   return (
-    <li className="w-[335px] h-[227px] border-t border-x border-x-solid border-t-solid border-t-black-200 border-x-black-200">
+    <li className="w-[335px] h-[227px] border-t border-x border-x-solid border-t-solid border-t-black-200 dark:border-t-gray-300 border-x-gray-300">
       <header
         className="px-5 py-4 flex justify-between items-center"
         style={{ backgroundColor: benefit?.backgroundColor }}
@@ -23,8 +23,8 @@ export const Benefit = ({ benefit }: BenefitProps) => {
         </h5>
         <img src={`/assets/icons/${benefit?.icon}.svg`} alt={benefit?.text} />
       </header>
-      <div className="border-y border-y-black-200 h-[167px] px-5 pt-6 pb-10 bg-white flex items-center justify-center">
-        <p className="text-black-300 text-left text-base w-[295px] font-normal">
+      <div className="border-y border-y-black-200 dark:border-y-gray-300 h-[167px] px-5 pt-6 pb-10 bg-white dark:bg-dark-background flex items-center justify-center">
+        <p className="text-black-300 dark:text-gray-300 text-left text-base w-[295px] font-normal">
           {benefit?.text}
         </p>
       </div>
