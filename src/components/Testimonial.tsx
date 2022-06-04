@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { CaretLeft, CaretRight } from "phosphor-react";
 import { useCallback, useEffect, useState } from "react";
+import { useTranslation } from "next-i18next";
 
 import { customers } from "utils/customers";
 
@@ -11,7 +12,11 @@ type Customer = {
   image: string;
 };
 
+const I18N_BASE_PATH = "components:testimonial";
+
 export const Testimonial = () => {
+  const { t } = useTranslation();
+
   const [currentCustomer, setCurrentCustomer] = useState<Customer>(
     customers?.[0]
   );
@@ -57,12 +62,13 @@ export const Testimonial = () => {
       />
       <div className="flex flex-col justify-center gap-[18px]">
         <h4 className="text-left text-primary-100 max-w-[270px] font-medium text-[32px] leading-[42px]">
-          What Our Customers Say
+          {t(`${I18N_BASE_PATH}.heading`, "What Our Customers Say")}
         </h4>
         <p className="text-left max-w-[335px] text-black-400 dark:text-gray-300 font-normal text-sm leading-6">
-          Lorem ipsum dolor sit amet consectetur adipiscing elit turpis viverra
-          amet elit est proin tgestas neque quis aliq vel. Viverra gravida orci
-          vitae at aliquam sit accums rutrum ut convallis.
+          {t(
+            `${I18N_BASE_PATH}.paragraph.`,
+            "Lorem ipsum dolor sit amet consectetur adipiscing elit turpis viverra amet elit est proin tgestas neque quis aliq vel. Viverra gravida orci vitae at aliquam sit accums rutrum ut convallis."
+          )}
         </p>
         <div className="flex flex-row items-center justify-between">
           <div className="flex flex-row">
@@ -72,7 +78,7 @@ export const Testimonial = () => {
                 {currentCustomer?.name}
               </span>
               <span className="font-medium text-sm leading-3 text-black-300 dark:text-gray-300 text-left block mt-[10px]">
-                {currentCustomer?.role}
+                {t(currentCustomer?.role, currentCustomer?.role)}
               </span>
             </div>
           </div>

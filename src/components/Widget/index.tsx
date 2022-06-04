@@ -1,9 +1,14 @@
 import { ChatTeardropDots } from "phosphor-react";
 import { Popover } from "@headlessui/react";
+import { useTranslation } from "next-i18next";
 
 import { WidgetForm } from "./WidgetForm";
 
+const I18N_BASE_PATH = "components:widget";
+
 export const Widget = () => {
+  const { t } = useTranslation();
+
   return (
     <Popover className="fixed bottom-4 right-4 md:bottom-8 md:right-8 flex flex-col items-end">
       <Popover.Panel>
@@ -15,7 +20,7 @@ export const Widget = () => {
 
         <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-linear">
           <span className="pl-2" />
-          Feedback
+          {t(`${I18N_BASE_PATH}.feedbackButtonText`, "Feedback")}
         </span>
       </Popover.Button>
     </Popover>

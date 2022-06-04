@@ -1,23 +1,25 @@
+const I18N_BASE_PATH = "utils:feedbackTypes";
+
 export const feedbackTypes = {
   BUG: {
-    title: "Problem",
+    title: `${I18N_BASE_PATH}.bug.title`,
     image: {
       fileName: "bug",
-      alt: "Image of a bug",
+      alt: `${I18N_BASE_PATH}.bug.image.alt`,
     },
   },
   IDEA: {
-    title: "Idea",
+    title: `${I18N_BASE_PATH}.idea.title`,
     image: {
       fileName: "idea",
-      alt: "Image of a lightbulb",
+      alt: `${I18N_BASE_PATH}.idea.image.alt`,
     },
   },
   OTHER: {
-    title: "Other",
+    title: `${I18N_BASE_PATH}.other.title`,
     image: {
       fileName: "thought",
-      alt: "Image of a thought bubble",
+      alt: `${I18N_BASE_PATH}.other.image.alt`,
     },
   },
 };

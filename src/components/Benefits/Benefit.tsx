@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import { useTranslation } from "next-i18next";
+
 type Benefit = {
   id: number;
   heading: string;
@@ -12,6 +14,8 @@ interface BenefitProps {
 }
 
 export const Benefit = ({ benefit }: BenefitProps) => {
+  const { t } = useTranslation();
+
   return (
     <li className="w-[335px] h-[227px] border-t border-x border-x-solid border-t-solid border-t-black-200 dark:border-t-gray-300 border-x-gray-300">
       <header
@@ -19,13 +23,16 @@ export const Benefit = ({ benefit }: BenefitProps) => {
         style={{ backgroundColor: benefit?.backgroundColor }}
       >
         <h5 className="text-black-100 font-medium text-left text-lg leading-[26px]">
-          {benefit?.heading}
+          {t(benefit?.heading, benefit?.heading)}
         </h5>
-        <img src={`/assets/icons/${benefit?.icon}.svg`} alt={benefit?.text} />
+        <img
+          src={`/assets/icons/${benefit?.icon}.svg`}
+          alt={t(benefit?.text, benefit?.text)}
+        />
       </header>
       <div className="border-y border-y-black-200 dark:border-y-gray-300 h-[167px] px-5 pt-6 pb-10 bg-white dark:bg-dark-background flex items-center justify-center">
         <p className="text-black-300 dark:text-gray-300 text-left text-base w-[295px] font-normal">
-          {benefit?.text}
+          {t(benefit?.text, benefit?.text)}
         </p>
       </div>
     </li>

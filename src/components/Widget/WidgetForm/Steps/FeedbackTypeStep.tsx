@@ -1,8 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
+import { useTranslation } from "next-i18next";
+
 import { WidgetCloseButton } from "../../WidgetCloseButton";
 import { FeedbackType } from "..";
 
 import { feedbackTypes } from "utils/widget-feedback-types";
+
+const I18N_BASE_PATH = "components:widget.widgetForm.steps.feedbackTypeStep";
 
 interface FeedbackTypeStepProps {
   onFeedbackTypeChanged: (feedbackType: FeedbackType) => void;
@@ -11,11 +15,13 @@ interface FeedbackTypeStepProps {
 export const FeedbackTypeStep = ({
   onFeedbackTypeChanged,
 }: FeedbackTypeStepProps) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <header>
         <span className="text-xl dark:text-gray-300 leading-6">
-          Leave your feedback
+          {t(`${I18N_BASE_PATH}.header.title`, "Leave your feedback")}
         </span>
         <WidgetCloseButton />
       </header>
@@ -30,9 +36,9 @@ export const FeedbackTypeStep = ({
           >
             <img
               src={`/assets/icons/${value.image.fileName}.svg`}
-              alt={value.image.alt}
+              alt={t(value.image.alt, value.image.alt)}
             />
-            <span className="font-text">{value.title}</span>
+            <span className="font-text">{t(value.title, value.title)}</span>
           </button>
         ))}
       </div>

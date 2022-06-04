@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { useCallback, useEffect, useState } from "react";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { Widget } from "components/Widget";
-
 import { About } from "components/About";
 import { BackToTopButton } from "components/BackToTopButton";
 import { Benefits } from "components/Benefits";
@@ -58,6 +58,18 @@ const Home: NextPage = () => {
       <Widget />
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale as string, [
+        "common",
+        "components",
+        "utils",
+      ])),
+    },
+  };
 };
 
 export default Home;

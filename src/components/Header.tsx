@@ -1,13 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "phosphor-react";
 
-import { useI18n } from "hooks/useI18n";
+type LOCALES = "en" | "pt";
 
 export const Header = () => {
+  const router = useRouter();
   const { theme, setTheme } = useTheme();
-  const { language, toggleChangeLanguage } = useI18n();
+  const [locale, setLocale] = useState<LOCALES>(
+    router.locale!.split("-")[0] as LOCALES
+  );
+
+  useEffect(() => {
+    router.push(router.pathname, router.pathname, { locale });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locale]);
 
   const [mounted, setMounted] = useState<boolean>(false);
 
@@ -42,9 +51,9 @@ export const Header = () => {
         <div className="flex flex-row items-center justify-center gap-2">
           <button
             className={`flex items-center justify-center w-7 h-7 ${
-              language === "pt-BR" ? "cursor-not-allowed" : "opacity-30"
+              locale === "pt" ? "cursor-not-allowed" : "opacity-30"
             }`}
-            onClick={toggleChangeLanguage}
+            onClick={() => setLocale("pt")}
           >
             <img
               src="/assets/icons/brazilian-flag.svg"
@@ -53,9 +62,9 @@ export const Header = () => {
           </button>
           <button
             className={`flex items-center justify-center w-8 h-8 ${
-              language === "en-US" ? "cursor-not-allowed" : "opacity-30"
+              locale === "en" ? "cursor-not-allowed" : "opacity-30"
             }`}
-            onClick={toggleChangeLanguage}
+            onClick={() => setLocale("en")}
           >
             <img
               src="/assets/icons/usa-flag.svg"
