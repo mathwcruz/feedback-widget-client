@@ -14,20 +14,20 @@ export const Benefits = () => {
         {t(`${I18N_BASE_PATH}.default.title`, "360° CUSTOMIZABLE")}
       </span>
       <div className="flex flex-col items-center justify-center gap-5 mt-2">
-        <h3 className="text-center max-w-[335px] text-[32px] leading-[42px] text-primary-100 font-medium">
+        <h3 className="text-center max-w-[335px] lg:max-w-[665px] text-[32px] leading-[42px] lg:text-[50px] lg:leading-[64px] text-primary-100 font-medium">
           {t(
             `${I18N_BASE_PATH}.default.heading`,
             "Have full control over your online store"
           )}
         </h3>
-        <p className="text-center max-w-[335px] text-black-400 dark:text-gray-300 font-normal text-sm leading-6">
+        <p className="text-center max-w-[335px] lg:max-w-[525px] text-black-400 dark:text-gray-300 font-normal text-sm lg:text-base leading-6 lg:leading-7">
           {t(
             `${I18N_BASE_PATH}.default.paragraph`,
             "Take total control of your eCommerce business by owning the source code and data that drive it."
           )}
         </p>
       </div>
-      <ul className="mt-9 flex flex-col items-center justify-center gap-6">
+      <ul className="mt-9 flex flex-col items-center justify-center lg:grid lg:grid-cols-3 lg:gap-10 gap-6">
         {benefits?.map((benefit) => (
           <Benefit key={benefit?.id} benefit={benefit} />
         ))}

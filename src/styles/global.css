@@ -4,6 +4,7 @@
 
 body {
   @apply text-zinc-100;
+  @apply overflow-x-hidden;
 }
 
 h1,
@@ -24,4 +25,16 @@ input,
 textarea,
 button {
   @apply font-text;
+}
+
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-sm bg-primary-100;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply rounded-md bg-primary-100;
 }

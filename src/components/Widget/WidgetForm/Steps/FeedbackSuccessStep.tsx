@@ -21,7 +21,7 @@ export const FeedbackSuccessStep = ({
       </header>
 
       <div className="flex flex-col items-center py-10 w-[304px]">
-        <img src="/check.svg" alt="Feedback sent" />
+        <img src="/assets/icons/check.svg" alt="Feedback sent" />
         <span className="text-xl mt-2 font-text">
           {t(`${I18N_BASE_PATH}.heading`, "We appreciate the feedback")}
         </span>

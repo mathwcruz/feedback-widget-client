@@ -11,7 +11,7 @@ export const BackToTopButton = ({
 }: BackToTopButtonProps) => {
   return (
     <button
-      className={`fixed bottom-5 left-4 md:bottom-10 md:left-8 flex flex-col items-center justify-center p-2 bg-primary-100 border border-white rounded-full cursor-pointer ${
+      className={`fixed bottom-4 left-4 md:bottom-6 md:left-6 flex flex-col items-center justify-center p-3 bg-primary-100 border border-white rounded-full cursor-pointer ${
         backToTopButtonIsVisible
           ? "opacity-100 transition-all duration-200"
           : "opacity-0 pointer-events-none"

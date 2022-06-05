@@ -54,30 +54,30 @@ export const Testimonial = () => {
   }, [currentCustomer?.id]);
 
   return (
-    <div className="w-screen h-full flex flex-col px-5 pb-[52px] justify-center">
+    <div className="w-full h-full flex flex-col lg:flex-row lg:justify-between px-5 pb-[52px] justify-center">
       <img
         src={`/assets/images/${currentCustomer?.image}.png`}
         alt=""
-        className="h-60 self-center mb-10 transition-all duration-1000"
+        className="h-60 lg:h-[400px] self-center mb-10 transition-all duration-1000"
       />
-      <div className="flex flex-col justify-center gap-[18px]">
-        <h4 className="text-left text-primary-100 max-w-[270px] font-medium text-[32px] leading-[42px]">
+      <div className="flex flex-col justify-center gap-[18px] lg:mt-10">
+        <h4 className="text-left text-primary-100 max-w-[270px] lg:max-w-[400px] font-medium text-[32px] lg:text-[50px] leading-[42px] lg:leading-[64px]">
           {t(`${I18N_BASE_PATH}.heading`, "What Our Customers Say")}
         </h4>
-        <p className="text-left max-w-[335px] text-black-400 dark:text-gray-300 font-normal text-sm leading-6">
+        <p className="text-left max-w-[335px] lg:max-w-[370px] text-black-400 dark:text-gray-300 font-normal text-sm lg:text-base leading-6 lg:leading-7">
           {t(
             `${I18N_BASE_PATH}.paragraph.`,
             "Lorem ipsum dolor sit amet consectetur adipiscing elit turpis viverra amet elit est proin tgestas neque quis aliq vel. Viverra gravida orci vitae at aliquam sit accums rutrum ut convallis."
           )}
         </p>
-        <div className="flex flex-row items-center justify-between">
+        <div className="flex flex-row lg:flex-col lg:items-start lg:gap-9 items-center justify-between">
           <div className="flex flex-row">
             <span className="self-start justify-self-start w-3 h-[2px] bg-primary-100" />
             <div className="flex flex-col justify-center ml-2 -mt-1">
               <span className="font-medium text-sm leading-3 text-primary-100 text-left block">
                 {currentCustomer?.name}
               </span>
-              <span className="font-medium text-sm leading-3 text-black-300 dark:text-gray-300 text-left block mt-[10px]">
+              <span className="font-medium text-sm leading-4 text-black-300 dark:text-gray-300 text-left block mt-[10px]">
                 {t(currentCustomer?.role, currentCustomer?.role)}
               </span>
             </div>

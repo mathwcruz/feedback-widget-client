@@ -20,7 +20,7 @@ export const FeedbackTypeStep = ({
   return (
     <>
       <header>
-        <span className="text-xl dark:text-gray-300 leading-6">
+        <span className="text-xl dark:text-zinc-200 leading-6">
           {t(`${I18N_BASE_PATH}.header.title`, "Leave your feedback")}
         </span>
         <WidgetCloseButton />
@@ -31,7 +31,7 @@ export const FeedbackTypeStep = ({
           <button
             key={key}
             type="button"
-            className="bg-primary-300 dark:border dark:border-gray-300 dark:bg-dark-background rounded-lg w-24 py-5 flex-1 flex flex-col items-center gap-2 border-2 border-transparent hover:border-primary-100 focus:border-primary-100 dark:hover:border-dark-background dark:focus:border-dark-background focus:outline-none"
+            className="bg-primary-300 dark:border dark:border-zinc-400 dark:bg-dark-background rounded-lg w-24 py-5 flex-1 flex flex-col items-center gap-2 border-2 border-transparent hover:border-primary-100 focus:border-primary-100 dark:hover:border-dark-background dark:focus:border-dark-background focus:outline-none"
             onClick={() => onFeedbackTypeChanged(key as FeedbackType)}
           >
             <img

@@ -39,11 +39,11 @@ const Home: NextPage = () => {
   }, []);
 
   return (
-    <div className="bg-tertiary-300 dark:bg-dark-background w-screen h-full">
+    <div className="bg-tertiary-300 dark:bg-dark-background">
       <Head>
         <title>Sirmyt</title>
       </Head>
-      <main className="w-full h-full pt-5 px-10 flex-col flex items-center justify-center">
+      <main className="pt-5 px-10 lg:my-0 lg:mx-auto flex-col flex items-center justify-center w-full lg:max-w-[1200px]">
         <Header />
         <About />
         <Benefits />

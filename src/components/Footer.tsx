@@ -9,13 +9,13 @@ export const Footer = () => {
   return (
     <div className="w-screen bg-primary-100 h-full px-5 py-9 flex flex-col items-center justify-center gap-12">
       <div className="flex flex-col items-center justify-center gap-[18px]">
-        <h4 className="text-center text-white max-w-[335px] font-medium text-[32px] leading-[42px]">
+        <h4 className="text-center text-white max-w-[335px] lg:max-w-[630px] font-medium text-[32px] lg:text-[50px] leading-[42px] lg:leading-[64px]">
           {t(
             `${I18N_BASE_PATH}.heading`,
             "We can take care of the installation"
           )}
         </h4>
-        <p className="text-center text-white dark:text-gray-300 max-w-[335px] font-normal text-sm leading-6 text-opacity-80">
+        <p className="text-center text-white dark:text-gray-300 max-w-[335px] lg:max-w-[570px] font-normal text-sm lg:text-base leading-6 lg:leading-7 text-opacity-80">
           {t(
             `${I18N_BASE_PATH}.paragraph`,
             "Don’t want to deal with technical stuff? Let us fire up Uvodo for you, so you can spend your time selling right away."
@@ -23,7 +23,7 @@ export const Footer = () => {
         </p>
       </div>
       <div className="flex flex-col items-center justify-center gap-7">
-        <div className="flex flex-row justify-center items-center gap-2">
+        <div className="flex flex-row justify-center items-center gap-2 visible lg:hidden">
           <img src="/assets/favicon.png" alt="Sirmyt logo" />
           <span className="block text-base text-white font-semibold text-center dark:text-gray-300">
             Sirmyt
