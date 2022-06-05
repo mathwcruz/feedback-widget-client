@@ -2,6 +2,7 @@
 import { FormEvent, useCallback, useMemo, useState } from "react";
 import { ArrowLeft } from "phosphor-react";
 import { useTranslation } from "next-i18next";
+import { toast } from "react-toastify";
 
 import { FeedbackType } from "components/Widget/WidgetForm";
 import { WidgetCloseButton } from "components/Widget/WidgetCloseButton";
@@ -48,14 +49,28 @@ export const FeedbackContentStep = ({
           screenshot,
         });
 
-        setIsLoading(false);
         onFeedbackSent();
       } catch (error) {
-        throw new Error(`Failed to send feedback: ${error}`);
+        toast.error(
+          t(
+            `${I18N_BASE_PATH}.handleSubmitFeedback.error`,
+            "There was an error sending feedback!"
+          ),
+          {
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+          }
+        );
+      } finally {
         setIsLoading(false);
       }
     },
-    [comment, feedbackType, onFeedbackSent, screenshot]
+    [comment, feedbackType, onFeedbackSent, screenshot, t]
   );
 
   return (

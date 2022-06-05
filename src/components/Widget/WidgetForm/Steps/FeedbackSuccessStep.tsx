@@ -22,7 +22,7 @@ export const FeedbackSuccessStep = ({
 
       <div className="flex flex-col items-center py-10 w-[304px]">
         <img src="/assets/icons/check.svg" alt="Feedback sent" />
-        <span className="text-xl mt-2 font-text">
+        <span className="text-xl mt-2 text-center font-text">
           {t(`${I18N_BASE_PATH}.heading`, "We appreciate the feedback")}
         </span>
         <button
